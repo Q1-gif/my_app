@@ -1,12 +1,19 @@
 <template>
     <div>
-        <h2>刚好遇见你</h2>
+        <home-header></home-header>
+        <home-swiper></home-swiper>
     </div>
 </template>
 
 <script>
+import HomeHeader from './componets/header'
+import Homeswiper from './componets/Swiper'
 export default {
-    name:'Home'
+    name:'Home',
+    components:{
+        HomeHeader,
+        Homeswiper
+    }
 }
 </script>
 
