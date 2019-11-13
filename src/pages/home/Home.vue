@@ -7,12 +7,12 @@
 
 <script>
 import HomeHeader from './componets/header'
-import Homeswiper from './componets/Swiper'
+import HomeSwiper from './componets/Swiper'
 export default {
     name:'Home',
     components:{
         HomeHeader,
-        Homeswiper
+        HomeSwiper
     }
 }
 </script>
