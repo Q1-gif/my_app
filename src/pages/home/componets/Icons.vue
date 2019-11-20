@@ -91,7 +91,7 @@ export default {
       padding-bottom: 25%
       .icon-img
         position: absolute
-        top: .3rem
+        top: 0
         left: 0
         right: 0
         bottom: .44rem
@@ -99,14 +99,14 @@ export default {
         .icon-img-content
           display: block
           margin: 0 auto
-          height: 80%
+          height: 100%
       .icon-desc
         position: absolute
         left: 0
         right: 0
-        bottom: .8rem
+        bottom: 0
         height: .44rem
-        font-size: .22rem
+        line-height: .44rem
         text-align: center
         ellipsic()
 </style>
