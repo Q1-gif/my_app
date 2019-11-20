@@ -1,47 +1,84 @@
 <template>
    <div class='icons'>
-      <div class="icon">
-        <div class='icon-img'>
-          <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" />
-        </div>
-        <p class="icons-desc">景点门票</p>
-      </div>
-      <div class="icon">
-          <div class='icon-img'>
-            <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png" />
+     <swiper :options="swiperOption">
+       <swiper-slide v-for='(page,index) of pages' :key='index'>
+          <div class="icon" v-for="item of page" :key='item.id'>
+            <div class="icon-img">
+              <img class="icon-img-content" :src="item.imgUrl" />
+            </div>
+            <p class="icon-desc">{{item.desc}}</p>
           </div>
-          <p class="icons-desc">一日游</p>
+       </swiper-slide>
+     </swiper>
       </div>
-      <div class="icon">
-          <div class="icon-img">
-              <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1803/f5/a963333e1fa802.png">
-          </div>
-          <p class="icons-desc">当地好玩</p>
-      </div>
-       <div class="icon">
-          <div class="icon-img">
-              <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1803/ee/5114069893722102.png">
-          </div>
-          <p class="icons-desc">游山玩水</p>
-      </div>
-       <div class="icon">
-          <div class="icon-img">
-              <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1803/80/416c6ab3368d1f02.png">
-          </div>
-          <p class="icons-desc">全部玩乐</p>
-      </div>
-   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeIcons'
+  name: 'HomeIcons',
+  data(){
+    return{
+      swiperOption:{
+        autoplay:false
+      },
+      iconList:[{
+        id: '001',
+        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
+        desc: '景点门票'
+      }, {
+        id:'002',
+        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/3ef092d0a89ffddb7f781cda30c8ae49.png',
+        desc:'错峰出行'
+      },{
+        id:'003',
+        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/ea/01d081dacb03cc02.png',
+        desc: '赏秋色'
+      },{
+        id:'004',
+        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
+        desc: '一日游'
+      },{
+        id:'005',
+        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/fa/2548667cb6e902.png',
+        desc:'上海自然博物馆'
+      },{
+        id:'006',
+        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
+        desc:'黄浦江游船'
+      },{
+        id:'007',
+        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png',
+        desc:'上海野生'
+      },{
+        id:'008',
+        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/de/f26be47a6bf02a02.png',
+        desc:'上海迪士尼'
+      },{
+        id:'009',
+        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
+        desc:'世纪公园'
+      }]
+    }
+  },
+  computed:{
+    pages(){
+      const pages=[]
+      this.iconList.forEach((item,index)=>{
+        const page=Math.floor(index/8)
+        if(!pages[page]){
+          pages[page]=[]
+        }
+        pages[page].push(item)
+      })
+      return pages
+    }
+  }
 }
 </script>
 
 <style lang='stylus' scoped>
-  .icons
-    overflow: hidden
+@import '~styles/varibles.styl';
+  .icons >>> .swiper-container
     height: 0
     padding-bottom: 50%
     background: #eee
@@ -63,12 +100,13 @@ export default {
           display: block
           margin: 0 auto
           height: 80%
-      .icons-desc
+      .icon-desc
         position: absolute
         left: 0
         right: 0
         bottom: .8rem
         height: .44rem
-        font-size: .2rem
+        font-size: .22rem
         text-align: center
+        ellipsic()
 </style>
