@@ -2,7 +2,7 @@
     <ul class="list">
         <li class="item" v-for="item of letters"
                          :key="item"
-                         :ref='ite'
+                         :ref='item'
                          @click="handleLetterClick"
                          @touchstart="handleTouchStart"
                          @touchmove="handleTouchMove"
@@ -44,7 +44,7 @@ export default {
         if(index >=0 && index < this.letters.length){
           this.$emit('change',this.letters[index])
         }
-        Console.log(index)
+       console.log(index)
       },
       handleTouchEnd(){
         this.touchStatus=false
