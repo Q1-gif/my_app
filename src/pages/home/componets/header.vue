@@ -7,10 +7,13 @@
             <span class="iconfont">&#xe610;</span>
             输入城市/景点/游玩主题
         </div>
+        <router-link to='/city'>
         <div class="header-right">
+            {{this.city}}
             城市
             <span class="iconfont arrow-icon">&#xe612;</span>
         </div>
+        </router-link>
     </div>
 </template>
 
@@ -19,38 +22,34 @@ export default {
     name:'HomeHeader'
 }
 </script>
-<style lang="stylus" scoped>
- @import '~styles/varibles.styl'
+<style lang='stylus' scoped>
   .header
-    background: $bgColor
     display: flex
-    line-height 2.9rem
+    line-height .88rem
     background: #00afc7
     color: #fff
     .header-left
-      width: 2.4rem
+      width: .64rem
       float: left
       .back-icon
         text-align: center
         font-size: .4rem
     .header-input
       flex: 1
-      height: 2.0rem
-      line-height: 2.0rem
-      margin-top: .3rem
+      height: .64rem
+      line-height: .64rem
+      margin-top: .12rem
       margin-left: .2rem
       padding-left: .2rem
       background: #fff
       border-radius: .1rem
       color: #ccc
-      text-indent 0.5rem
     .header-right
       min-width: 1.04rem
       padding: 0 .1rem
       float: right
       text-align: center
       color: #fff
-      width: 4.4rem
       .arrow-icon
         margin-left: -.04rem
         font-size: .24rem
